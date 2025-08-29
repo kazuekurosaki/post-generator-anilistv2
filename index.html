@@ -186,7 +186,7 @@
             background-color: #e8f5e9;
             color: #2e7d32;
             padding: 16px;
-            border-radius: 8q;
+            border-radius: 8px;
             margin-bottom: 20px;
             display: none;
         }
@@ -331,8 +331,8 @@
                                             name {
                                                 full
                                             }
-                                            role
                                         }
+                                        role
                                     }
                                 }
                             }
@@ -393,8 +393,7 @@
                 let staff = '';
                 if (media.staff && media.staff.edges && media.staff.edges.length > 0) {
                     staff = media.staff.edges
-                        .filter(edge => edge.role.toLowerCase().includes('story') || edge.role.toLowerCase().includes('art'))
-                        .map(edge => edge.node.name.full)
+                        .map(edge => `${edge.node.name.full} (${edge.role})`)
                         .join(', ');
                 }
                 
